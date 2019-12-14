@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars!</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+    
+  <div class="container">
+      <div class="jumbotron text-center">
+
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+
+    <div class = "row">
+      <div class = "col-3"><h2>Latest Mars News</h2></div>
+      <div class = "col-9"></div>
+   </div>
+    
+   <div class = "row">
+    <div class = "col-sm-8"><h6 class="heading">{{items.news_title}}</h6></div>
+    <div class = "col-sm-4"></div>
+ </div>
+
+ <div class = "row">
+  <div class = "col-12"><h6 class="heading">{{items.news_p}}</h6></div>
+</div>
+
+<!-- <div class="container">  -->
+<div class = "row">
+
+<div class = "col-8"> </div>
+<div class = "col-4">
+  <h6 class="heading">Current Weather on Mars <br>
+  {{items.mars_weather}}</h6></div>
+<br>
+<div class = "col-8"> </div>
+<!-- <div class = "col-4" text-center"><h4>Mars Facts</h4>{{items.mars_df}}</div> -->
+<div class = "col-4" text-center"><h4>Mars Facts</h4>  
+  {{items.mars_df}}</div> 
+</div>
+</div>
+
+<!-- </div> -->
+
+
+
+<div class = "row">
+    <div class = "col-12"><h6 class="heading"><img class="img-responsive" src={{ items.featured_image_url }}></h6></div>
+    </div
+
+
+
+  <div class = "row">
+      <div class = "col-6">
+      {% for url in items.hemisphere_image_urls %}
+      {{url['title']}}
+      <p><img class="img-responsive" src={{ url["img_url"] }}/full.jpg></p>
+      {% endfor %}
+     </div>
+  </div>
+
+
+
+  </div>
+</body>
+
+</html>
